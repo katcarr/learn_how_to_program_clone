@@ -15,5 +15,11 @@
  */
 
 .lessons {
-  display: none;
+  /*display: none;*/
+}
+
+.bottom {
+  position:fixed;
+  bottom: 0;
+  padding: 10px;
 }
