@@ -1,0 +1,20 @@
+<h1>Sections</h1>
+
+
+  <ul>
+    <% @sections.each do |section| %>
+<div class="col-sm-6 ">
+    <li><%= section.name %></li>
+      <ul>
+        <% section.subsections.each do |subsection| %>
+        <li><%= subsection.name %></li>
+          <ul>
+            <% subsection.lessons.each do |lesson| %>
+            <li><%= lesson.name %></li>
+            <% end %>
+          </ul>
+        <% end %>
+      </ul>
+</div>
+    <% end %>
+  </ul>
