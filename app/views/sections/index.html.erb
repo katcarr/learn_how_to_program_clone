@@ -23,8 +23,8 @@
 
   <script>
   $(document).ready(function() {
-    $(".subsection").click(function(event) {
-      $(this).children().children("li.lessons").show();
+    $(".subsection").hover(function(event) {
+      $(this).children().children().show();
       event.preventDefault();
     });
   });
