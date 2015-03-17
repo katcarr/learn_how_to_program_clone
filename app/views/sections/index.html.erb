@@ -2,18 +2,18 @@
 
   <ul>
     <% @sections.each do |section| %>
-<div class="col-sm-6 ">
-    <li><h5><%= section.name %></h5></li>
-      <ul>
-        <% section.subsections.each do |subsection| %>
-        <li><%= subsection.name %></li>
-          <ul>
-            <% subsection.lessons.each do |lesson| %>
-            <li><%= link_to lesson.name, section_subsection_lesson_path(section,subsection,lesson) %></li>
-            <% end %>
-          </ul>
-        <% end %>
-      </ul>
-</div>
+      <div class="col-sm-6 ">
+        <li><h5><%= section.name %></h5></li>
+        <ul>
+          <% section.subsections.each do |subsection| %>
+          <li><%= subsection.name %></li>
+            <ul>
+              <% subsection.lessons.each do |lesson| %>
+              <li><%= link_to lesson.name, section_subsection_lesson_path(section,subsection,lesson) %></li>
+              <% end %>
+            </ul>
+          <% end %>
+        </ul>
+      </div>
     <% end %>
   </ul>
