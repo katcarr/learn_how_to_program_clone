@@ -23,3 +23,10 @@
   bottom: 0;
   padding: 10px;
 }
+
+#bottom-right{
+  position:fixed;
+  bottom: 0;
+  padding: 15px;
+  right: 0;
+}

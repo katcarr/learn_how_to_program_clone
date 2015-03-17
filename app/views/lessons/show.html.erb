@@ -6,3 +6,6 @@
   <button><%= link_to 'Previous Lesson', section_subsection_lesson_path(@next_section, @next_subsection, @next_lesson)%></button>
   <button><%= link_to 'Next Lesson', section_subsection_lesson_path(@next_section, @next_subsection, @next_lesson)%></button>
 </div>
+<div id="bottom-right">
+  <button><%= link_to 'Table of Contents', sections_path()%></button>
+</div>
