@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="../assets/stylesheets/bootstrap.min.css"></link>
 </head>
 <body>
+  <div class="container">
 
-  <%= flash[:alert] %>
-  <%= flash[:notice] %>
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
 
-<%= yield %>
-
+    <%= yield %>
+  </div>
 </body>
 </html>

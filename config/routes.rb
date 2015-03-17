@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  resources :sections
+  resources :sections do
+    resources :subsections, :only => [] do
+      resources :lessons
+    end
+  end
 end
