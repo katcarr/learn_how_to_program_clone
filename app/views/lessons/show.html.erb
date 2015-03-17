@@ -2,8 +2,6 @@
 
 <h1><%= @lesson.name %></h1>
 
-
-
 <div class="bottom">
-  <button name="button">Next Lesson</button>
+  <button><%= link_to 'Next Lesson', section_subsection_lesson_path(@next_section, @next_subsection, @next_lesson)%></button>
 </div>

@@ -2,10 +2,13 @@ require 'rails_helper'
 
 describe "go to the lesson page process" do
   it "goes to the lesson page" do
+    section = Section.create(:name => "Section")
+    sub_section = Subsection.create(:name => "Subsection", :section_id => section.id)
+    lesson = Lesson.create(:name => "Lesson", :subsection_id => sub_section.id)
     visit sections_path
-    # click_on 'HTML and CSS basics'
-    click_on 'Text Editor'
-    expect(page).to have_content 'Text Editor'
+    # save_and_open_page
+    click_on 'Lesson'
+    expect(page).to have_content 'Lesson'
   end
 end
 
