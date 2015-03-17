@@ -6,10 +6,12 @@
         <li><h5><%= section.name %></h5></li>
         <ul>
           <% section.subsections.each do |subsection| %>
-          <li><%= subsection.name %></li>
+          <li class="subsection"><%= subsection.name %></li>
             <ul>
               <% subsection.lessons.each do |lesson| %>
+              <div class="lessons">
               <li><%= link_to lesson.name, section_subsection_lesson_path(section,subsection,lesson) %></li>
+            </div>
               <% end %>
             </ul>
           <% end %>
@@ -17,3 +19,12 @@
       </div>
     <% end %>
   </ul>
+
+  <script>
+  $(document).ready(function() {
+    $("li.subsection").click(function(event) {
+      $(".lessons").toggle();
+      event.preventDefault();
+    });
+  });
+  </script>
