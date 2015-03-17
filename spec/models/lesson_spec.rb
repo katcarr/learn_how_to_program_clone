@@ -38,6 +38,42 @@ describe Lesson do
     end
   end
 
+  describe("#previous_lesson") do
+    it("will return the previous lesson object") do
+      section = Section.create(:name => "Section")
+      sub_section = Subsection.create(:name => "Subsection", :section_id => section.id)
+      lesson1 = Lesson.create(:name => "Lesson", :subsection_id => sub_section.id)
+      lesson2 = Lesson.create(:name => "Lesson", :subsection_id => sub_section.id)
+      expect(lesson2.previous_lesson).to(eq(lesson1))
+    end
+    it("will return nil if there are no previous lessons") do
+      section = Section.create(:name => "Section")
+      sub_section = Subsection.create(:name => "Subsection", :section_id => section.id)
+      lesson1 = Lesson.create(:name => "Lesson", :subsection_id => sub_section.id)
+      expect(lesson1.previous_lesson).to(eq(nil))
+    end
+    it("will return the last lesson of the previous subsection when clicking previous lesson on a subsection's first lesson") do
+      section = Section.create(:name => "Section")
+      sub_section = Subsection.create(:name => "Subsection", :section_id => section.id)
+      lesson1 = Lesson.create(:name => "Lesson", :subsection_id => sub_section.id)
+      lesson2 = Lesson.create(:name => "Lesson", :subsection_id => sub_section.id)
+      sub_section1 = Subsection.create(:name => "Subsection1", :section_id => section.id)
+      lesson3 = Lesson.create(:name => "Lesson", :subsection_id => sub_section1.id)
+      expect(lesson3.previous_lesson).to(eq(lesson2))
+    end
+    it("will return the last lesson of the previous section's last subsection's last lesson when clicking on a section's last subsection lesson") do
+      section = Section.create(:name => "Section")
+      sub_section = Subsection.create(:name => "Subsection", :section_id => section.id)
+      lesson1 = Lesson.create(:name => "Lesson", :subsection_id => sub_section.id)
+      section1 = Section.create(:name => "Section1")
+      sub_section1 = Subsection.create(:name => "Subsection1", :section_id => section1.id)
+      lesson3 = Lesson.create(:name => "Lesson", :subsection_id => sub_section1.id)
+      expect(lesson3.previous_lesson).to(eq(lesson1))
+    end
+  end
+
+
+
 
 
 end
